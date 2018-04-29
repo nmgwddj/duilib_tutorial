@@ -86,7 +86,7 @@ git clone https://github.com/duilib/duilib.git
 
 新建时记得不用再重新新建一个解决方案平台。其他几个也如法炮制。
 
-<img src="../images/2018-04-28_13-47-24.png" />
+<img src="../images/2018-04-28_13-45-43.png" />
 
 如果你不需要多字节版本的 DuiLib，那么可以在属性管理器中，把默认的 Debug 和 Release 属性删除，然后把 UnicodeDebug 和 UnicodeRelease 修改为 Debug 和 Release。注意：删除完成后要保存一下，退出 VS 重新打开，再修改原来的 Unicode* 为正常的名字。如果直接修改会报错，这里可能是 VS 的 Bug，也可能是我使用不当。
 
