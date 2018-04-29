@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Window size="640,480" caption="0,0,0,35">
-	<VerticalLayout>
-		<HorizontalLayout bkcolor="#FFFFFFFF"/>
-		<HorizontalLayout bkcolor="#FFFFFFFF">
-			<Button text="Hello DuiLib" bkcolor="#FF1296DB"/>
-		</HorizontalLayout>
-		<HorizontalLayout bkcolor="#FFFFFFFF"/>
-	</VerticalLayout>
+	<TileLayout columns="3">
+		<Button text="1" height="30" bkcolor="#FFD81E06" />
+		<Button text="2" height="30" bkcolor="#FF1AFA29" />
+		<Button text="3" height="30" bkcolor="#FF1296DB" />
+		<Button text="1" height="30" bkcolor="#FFD81E06" />
+		<Button text="2" height="30" bkcolor="#FF1AFA29" />
+		<Button text="3" height="30" bkcolor="#FF1296DB" />
+		<Button text="1" height="30" bkcolor="#FFD81E06" />
+		<Button text="2" height="30" bkcolor="#FF1AFA29" />
+		<Button text="3" height="30" bkcolor="#FF1296DB" />
+		<Button text="1" height="30" bkcolor="#FFD81E06" />
+		<Button text="2" height="30" bkcolor="#FF1AFA29" />
+		<Button text="3" height="30" bkcolor="#FF1296DB" />
+	</TileLayout>
 </Window>
