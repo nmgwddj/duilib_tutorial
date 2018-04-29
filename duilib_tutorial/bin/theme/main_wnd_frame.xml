@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="640,480" caption="0,0,0,35">
+	<VerticalLayout>
+		<HorizontalLayout bkcolor="#FFFFFFFF"/>
+		<HorizontalLayout bkcolor="#FFFFFFFF">
+			<Button text="Hello DuiLib" bkcolor="#FF1296DB"/>
+		</HorizontalLayout>
+		<HorizontalLayout bkcolor="#FFFFFFFF"/>
+	</VerticalLayout>
+</Window>

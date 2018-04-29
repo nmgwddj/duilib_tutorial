@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Custom
+*.exp
+*.dll
+*.lib
+*.exe
+
 # User-specific files
 *.suo
 *.user
@@ -22,7 +28,6 @@
 x64/
 x86/
 bld/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
 
