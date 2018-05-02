@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Window size="640,480" caption="0,0,0,35">
+<Window size="640,480" mininfo="640,480" caption="0,0,0,35" sizebox="4,4,4,4">
 	<Font shared="true" id="1" name="微软雅黑" size="14" />
 	<VerticalLayout>
 		<!-- 标题栏 -->

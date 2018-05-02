@@ -104,11 +104,22 @@ LRESULT MainWndFrame::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHa
 	return __super::OnClose(uMsg, wParam, lParam, bHandled);
 }
 ```
-覆写完成后，我们三个功能按钮（哦不，是四个）就都可以正常使用了。另外我自己还发现了一个小问题，窗口的标题栏双击是无法最大化的，这个解决很简单，在 main 函数创建窗口的时候，将窗口的 `UI_WNDSTYLE_DIALOG` 属性修改为 `UI_WNDSTYLE_FRAME` 就可以了，至于两个参数什么意思，大家跟进去看一下就知道拉。
+覆写完成后，我们三个功能按钮（哦不，是四个）就都可以正常使用了。另外我自己还发现了两个小问题，窗口的标题栏双击是无法最大化的，这个解决很简单，在 main 函数创建窗口的时候，将窗口的 `UI_WNDSTYLE_DIALOG` 属性修改为 `UI_WNDSTYLE_FRAME` 就可以了，至于两个参数什么意思，大家跟进去看一下就知道拉。
 
 ```
 pMainWndFrame->Create(nullptr, MainWndFrame::kClassName, UI_WNDSTYLE_FRAME, 0);
 ```
+
+另外一个问题是窗口是无法拖动放大缩小的，这个也很好解决，我们修改 XML，添加上窗口最小大小和可拖动范围就可以了。如下所示：
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="640,480" mininfo="640,480" caption="0,0,0,35" sizebox="4,4,4,4">
+	......
+</Window>
+```
+
+`mininfo` 属性决定了窗口最小大小，`sizebox` 属性是指定当鼠标移动到窗口边缘多少像素的时候显示拖放手势。这里指定的是 4 像素，这样指定后窗口就可以拖动了，而且最小不允许小于默认的 640x480。
 
 ## 事件委托
 
