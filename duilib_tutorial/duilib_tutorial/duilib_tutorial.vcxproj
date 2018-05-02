@@ -175,12 +175,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="duilib_tutorial.h" />
+    <ClInclude Include="MainWndFrame.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="duilib_tutorial.cpp" />
+    <ClCompile Include="MainWndFrame.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

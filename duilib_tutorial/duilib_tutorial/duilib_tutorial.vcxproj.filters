@@ -27,12 +27,18 @@
     <ClInclude Include="duilib_tutorial.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MainWndFrame.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="duilib_tutorial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="MainWndFrame.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
