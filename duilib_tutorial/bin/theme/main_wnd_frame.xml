@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Window size="640,480" caption="0,0,0,35">
+	<Font shared="true" id="1" name="微软雅黑" size="14" />
 	<VerticalLayout>
 		<!-- 标题栏 -->
 		<HorizontalLayout height="35" bkcolor="#FFD6DBE9" inset="8,8,8,0">
 			<HorizontalLayout width="185">
 				<Control bkimage="logo.png" height="18" width="18" />
-				<Label text="duilib tutorial" height="18" padding="8"/>
+				<Label text="duilib tutorial" height="18" padding="8" font="1"/>
 			</HorizontalLayout>
 			<Control />
 			<HorizontalLayout childpadding="3" width="60">

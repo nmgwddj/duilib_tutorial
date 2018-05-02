@@ -200,3 +200,93 @@
 同样的代码我们只是在两个水平布局中间增加了一个空的 Control 控件，它会根据父容器的宽度无限拉伸，由于两侧的两个水平布局容器已经设置了固定宽度，那么它会 “野蛮” 的把剩下所有控件都占掉。这就是所谓的 *占位符*。如果你需要实现一个紧贴顶部和紧贴底部的容器，那么你可以使用垂直布局方式，中间同样增加一个占位符来实现需求。
 
 到这里我们已经基本上把所有布局相关的内容都说的差不多了，如果还有更重要的内容我会一点点在补充。大家发现，除了之前我们构建窗口时写了一部分代码，剩下的内容都是我们通过 XML 来实现的，并没有敲一行多余的代码。这就是 DuiLib，界面和业务有很大的分离性。接下来我们该看看怎么响应按钮的点击事件了。
+
+## 默认样式
+
+DuiLib 在 XML 语法中提供了一些默认样式功能，我们可以给指定控件预设一些默认的样式，当创建这种控件的时候，默认样式就会在其上面展现。比如我们希望所有按钮都有一个边框。那么可以像下面这样来编写 XML
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="640,480" caption="0,0,0,35">
+	<Default name="Button" value="bordersize=&quot;1&quot; bordercolor=&quot;#FF222222&quot;" />
+	<VerticalLayout>
+		<!-- 标题栏 -->
+		<HorizontalLayout height="35" bkcolor="#FFD6DBE9" inset="8,8,8,0">
+			<HorizontalLayout width="185">
+				<Control bkimage="logo.png" height="18" width="18" />
+				<Label text="duilib tutorial" height="18" padding="8"/>
+			</HorizontalLayout>
+			<Control />
+			<HorizontalLayout childpadding="3" width="60">
+				<Button name="minbtn" height="18" width="18" normalimage="btn_min_normal.png" hotimage="btn_min_hovered.png" pushedimage="btn_min_pushed.png" />
+				<Button name="maxbtn" height="18" width="18" normalimage="btn_max_normal.png" hotimage="btn_max_hovered.png" pushedimage="btn_max_pushed.png" />
+				<Button name="restorebtn" height="18" width="18" normalimage="btn_restore_normal.png" hotimage="btn_restore_hovered.png" pushedimage="btn_restore_pushed.png" visible="false"/>
+				<Button name="closebtn" height="18" width="18" normalimage="btn_close_normal.png" hotimage="btn_close_hovered.png" pushedimage="btn_close_pushed.png" />
+			</HorizontalLayout>
+		</HorizontalLayout>
+		<!-- 窗口内容区域 -->
+		<HorizontalLayout bkcolor="#FF4D6082">
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>
+```
+
+我们增加了一行
+
+```
+<Default name="Button" value="bordersize=&quot;1&quot; bordercolor=&quot;#FF222222&quot;" />
+```
+
+设置其 name 属性为 “Button”，value 属性为样式描述，因为是作为 XML 的值来使用，所以双引号等要做一下转义。这也操作后，所有按钮都具备了 `"bordersize="1" bordercolor="#FF222222"`  两个属性。如下所示：
+
+<img src="../images/2018-05-02_14-19-46.png" />
+
+## 全局字体
+
+像默认属性一样，全局字体也是可以让多个控件使用的一个属性，不过控件可以决定是否使用这个属性，而上面介绍的默认属性是强制的。使用方法如下：
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<Window size="640,480" caption="0,0,0,35">
+	<Font shared="true" id="1" name="微软雅黑" size="18" />
+	<VerticalLayout>
+		<!-- 标题栏 -->
+		<HorizontalLayout height="35" bkcolor="#FFD6DBE9" inset="8,8,8,0">
+			<HorizontalLayout width="185">
+				<Control bkimage="logo.png" height="18" width="18" />
+				<Label text="duilib tutorial" height="18" padding="8" font="1"/>
+			</HorizontalLayout>
+			<Control />
+			<HorizontalLayout childpadding="3" width="60">
+				<Button name="minbtn" height="18" width="18" normalimage="btn_min_normal.png" hotimage="btn_min_hovered.png" pushedimage="btn_min_pushed.png" />
+				<Button name="maxbtn" height="18" width="18" normalimage="btn_max_normal.png" hotimage="btn_max_hovered.png" pushedimage="btn_max_pushed.png" />
+				<Button name="restorebtn" height="18" width="18" normalimage="btn_restore_normal.png" hotimage="btn_restore_hovered.png" pushedimage="btn_restore_pushed.png" visible="false"/>
+				<Button name="closebtn" height="18" width="18" normalimage="btn_close_normal.png" hotimage="btn_close_hovered.png" pushedimage="btn_close_pushed.png" />
+			</HorizontalLayout>
+		</HorizontalLayout>
+		<!-- 窗口内容区域 -->
+		<HorizontalLayout bkcolor="#FF4D6082">
+		</HorizontalLayout>
+	</VerticalLayout>
+</Window>
+```
+
+我们添加了一行 
+
+```
+<Font shared="true" id="1" name="微软雅黑" size="18" />
+```
+
+并在标题的 Label 中增加了一个 `Font="1"` 的属性，用意就是让这个 Label 使用 Font 编号为 1 的字体。而 Font 通过 id 属性指定了编号。这样再运行程序后，窗体标题就变成了微软雅黑 18 大小的字体。
+
+<img src="../images/2018-05-02_14-24-41.png" />
+
+Font 有如下属性可以使用
+
+ - name：字体名称
+ - size：字体大小
+ - bold：粗体
+ - italic：斜体
+ - underline：下划线
+ - id：字体的编号
+ - shared：是否共享
