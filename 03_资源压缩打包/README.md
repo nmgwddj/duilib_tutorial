@@ -42,7 +42,7 @@ CPaintManagerUI::SetResourcePath(CPaintManagerUI::GetInstancePath());
 CPaintManagerUI::SetResourceZip(_T("theme.zip"));
 ```
 
-随后我们要复写基类的两个对资源处理的函数，这两个函数分别是 `GetResourceType` 和 `GetResourceID`，前者是设置资源类型，有以下几种：
+随后我们要覆写基类的两个对资源处理的函数，这两个函数分别是 `GetResourceType` 和 `GetResourceID`，前者是设置资源类型，有以下几种：
 
 ```
 UILIB_FILE=1,       // 来自磁盘文件
@@ -51,7 +51,7 @@ UILIB_RESOURCE,     // 来自资源
 UILIB_ZIPRESOURCE,  // 来自资源的zip压缩包
 ```
 
-可以看到这里支持 4 种形式，包括我们之前提到的使用 ZIP 压缩包的方式，这次我们用复写两个函数的方式来实现使用资源的 ZIP 压缩包形式。第二个函数 `GetResourceID` 就是我们要使用的资源 ID 了。首先我们要添加一个资源到项目中，资源的类型要固定为 `ZIPRES`，为什么？因为代码中写死了。我们看一下使用资源 ZIP 压缩包的内部实现代码。
+可以看到这里支持 4 种形式，包括我们之前提到的使用 ZIP 压缩包的方式，这次我们用覆写两个函数的方式来实现使用资源的 ZIP 压缩包形式。第二个函数 `GetResourceID` 就是我们要使用的资源 ID 了。首先我们要添加一个资源到项目中，资源的类型要固定为 `ZIPRES`，为什么？因为代码中写死了。我们看一下使用资源 ZIP 压缩包的内部实现代码。
 
 ```
 case UILIB_ZIPRESOURCE:
@@ -100,7 +100,7 @@ case UILIB_ZIPRESOURCE:
 
 <img src="../images/2018-04-29_16-52-52.png" />
 
-资源添加完毕了，我们得到了一个资源名为 `IDR_ZIPRES1` 的资源，此时我们开始复写两个函数。如下所示：
+资源添加完毕了，我们得到了一个资源名为 `IDR_ZIPRES1` 的资源，此时我们开始覆写两个函数。如下所示：
 
 ```
 DuiLib::UILIB_RESOURCETYPE MainWndFrame::GetResourceType() const

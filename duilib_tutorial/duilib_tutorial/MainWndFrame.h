@@ -11,7 +11,10 @@ protected:
 	virtual LPCTSTR GetResourceID() const override;				// 如果是ZIP资源，返回资源ID
 
 	virtual void InitWindow() override;							// 窗口初始化函数
+	virtual void Notify(TNotifyUI& msg) override;				// 通知事件处理函数
 
+	DUI_DECLARE_MESSAGE_MAP()
+	virtual LRESULT OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled) override;
 public:
 	static const LPCTSTR	kClassName;
 	static const LPCTSTR	kMainWndFrame;
