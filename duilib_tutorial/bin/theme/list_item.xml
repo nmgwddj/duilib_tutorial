@@ -9,9 +9,9 @@
 				<Label name="item_tip" text="下载速度：10M/s" />
 			</VerticalLayout>
 			<HorizontalLayout childpadding="10" width="70" inset="0,17">
-				<Button width="16" height="16" name="btn_start" normalimage="btn_start_normal.png" hotimage="btn_start_hovered.ong" pushedimage="btn_start_pushed.png" />
-				<Button width="16" height="16" name="btn_folder" normalimage="btn_folder_normal.png" hotimage="btn_folder_hovered.ong" pushedimage="btn_folder_pushed.png" />
-				<Button width="16" height="16" name="btn_delete" normalimage="btn_delete_normal.png" hotimage="btn_delete_hovered.ong" pushedimage="btn_delete_pushed.png" />
+				<Button width="16" height="16" name="btn_start" normalimage="btn_start_normal.png" hotimage="btn_start_hovered.png" pushedimage="btn_start_pushed.png" />
+				<Button width="16" height="16" name="btn_folder" normalimage="btn_folder_normal.png" hotimage="btn_folder_hovered.png" pushedimage="btn_folder_pushed.png" />
+				<Button width="16" height="16" name="btn_delete" normalimage="btn_delete_normal.png" hotimage="btn_delete_hovered.png" pushedimage="btn_delete_pushed.png" />
 			</HorizontalLayout>
 		</HorizontalLayout>
 	</ListContainerElement>
