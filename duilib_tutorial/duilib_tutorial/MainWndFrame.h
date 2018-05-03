@@ -24,4 +24,7 @@ private:
 	CButtonUI*				m_pMaxBtn = nullptr;
 	CButtonUI*				m_pRestoreBtn = nullptr;
 	CButtonUI*				m_pCloseBtn = nullptr;
+
+	CListUI*				m_pMainWndList = nullptr;
+	CDialogBuilder			m_pBuilder;
 };

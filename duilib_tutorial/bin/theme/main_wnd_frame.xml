@@ -18,6 +18,7 @@
 		</HorizontalLayout>
 		<!-- 窗口内容区域 -->
 		<HorizontalLayout bkcolor="#FF4D6082">
+			<List name="main_wnd_list" header="hidden" padding="10,10,10,10" />
 		</HorizontalLayout>
 	</VerticalLayout>
 </Window>

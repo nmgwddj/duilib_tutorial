@@ -47,6 +47,30 @@ void MainWndFrame::InitWindow()
 	m_pMaxBtn = dynamic_cast<CButtonUI*>(m_PaintManager.FindControl(_T("maxbtn")));
 	m_pRestoreBtn = dynamic_cast<CButtonUI*>(m_PaintManager.FindControl(_T("restorebtn")));
 	m_pCloseBtn = dynamic_cast<CButtonUI*>(m_PaintManager.FindControl(_T("closebtn")));
+
+	m_pMainWndList = dynamic_cast<CListUI*>(m_PaintManager.FindControl(_T("main_wnd_list")));
+
+#if 0
+	// 使用代码方式创建
+	CButtonUI* btn = new CButtonUI;
+	btn->SetText(_T("动态添加的按钮"));
+	btn->SetBkColor(0xFFFFFFFF);
+	btn->SetFixedHeight(60);
+	btn->SetFixedWidth(100);
+
+	m_pMainWndContent->Add(btn);
+#endif
+
+	CControlUI* pControl = nullptr;
+	if (m_pBuilder.GetMarkup()->IsValid())
+	{
+		pControl = m_pBuilder.Create(this, &m_PaintManager);
+	}
+	else
+	{
+		pControl = m_pBuilder.Create(_T("list_item.xml"), (UINT)0, this, &m_PaintManager);
+	}
+	m_pMainWndList->Add(pControl);
 }
 
 void MainWndFrame::Notify(TNotifyUI& msg)
