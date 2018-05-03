@@ -9,7 +9,8 @@
 				<Label text="duilib tutorial" height="18" padding="8" font="1"/>
 			</HorizontalLayout>
 			<Control />
-			<HorizontalLayout childpadding="3" width="60">
+			<HorizontalLayout childpadding="3" width="81">
+				<Button name="aboutbtn" height="18" width="18" normalimage="btn_about_normal.png" hotimage="btn_about_hovered.png" pushedimage="btn_about_pushed.png" />
 				<Button name="minbtn" height="18" width="18" normalimage="btn_min_normal.png" hotimage="btn_min_hovered.png" pushedimage="btn_min_pushed.png" />
 				<Button name="maxbtn" height="18" width="18" normalimage="btn_max_normal.png" hotimage="btn_max_hovered.png" pushedimage="btn_max_pushed.png" />
 				<Button name="restorebtn" height="18" width="18" normalimage="btn_restore_normal.png" hotimage="btn_restore_hovered.png" pushedimage="btn_restore_pushed.png" visible="false"/>

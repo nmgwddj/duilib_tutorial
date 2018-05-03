@@ -6,7 +6,7 @@ DUI_BEGIN_MESSAGE_MAP(MainWndFrame, CNotifyPump)
 	DUI_ON_MSGTYPE(DUI_MSGTYPE_CLICK, OnClick)
 DUI_END_MESSAGE_MAP()
 
-DuiLib::CDuiString MainWndFrame::GetSkinFolder()
+CDuiString MainWndFrame::GetSkinFolder()
 {
 #if _DEBUG
 	return _T("theme");
@@ -15,7 +15,7 @@ DuiLib::CDuiString MainWndFrame::GetSkinFolder()
 #endif
 }
 
-DuiLib::CDuiString MainWndFrame::GetSkinFile()
+CDuiString MainWndFrame::GetSkinFile()
 {
 	// 成员变量定义的皮肤文件名
 	return kMainWndFrame;
@@ -75,6 +75,7 @@ void MainWndFrame::InitWindow()
 
 void MainWndFrame::Notify(TNotifyUI& msg)
 {
+#if 0
 	if (msg.sType == DUI_MSGTYPE_CLICK)
 	{
 		CDuiString strName = msg.pSender->GetName();
@@ -83,8 +84,26 @@ void MainWndFrame::Notify(TNotifyUI& msg)
 			SendMessage(WM_SYSCOMMAND, SC_MINIMIZE, 0);
 		}
 	}
+#endif
 
 	__super::Notify(msg);
+}
+
+void MainWndFrame::OnClick(TNotifyUI& msg)
+{
+	CDuiString strName = msg.pSender->GetName();
+	if (strName == _T("aboutbtn"))
+	{
+		if (m_pAboutWndFrame == nullptr)
+		{
+			m_pAboutWndFrame = new AboutWndFrame();
+			m_pAboutWndFrame->Create(this->GetHWND(), AboutWndFrame::kClassName, UI_WNDSTYLE_DIALOG, 0);
+		}
+		m_pAboutWndFrame->CenterWindow();
+		m_pAboutWndFrame->ShowWindow();
+	}
+
+	__super::OnClick(msg);
 }
 
 LRESULT MainWndFrame::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)

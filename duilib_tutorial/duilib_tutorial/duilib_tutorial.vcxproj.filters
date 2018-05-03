@@ -30,6 +30,9 @@
     <ClInclude Include="MainWndFrame.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="AboutWndFrame.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -39,6 +42,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="MainWndFrame.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="AboutWndFrame.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
