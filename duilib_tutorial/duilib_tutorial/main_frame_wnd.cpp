@@ -1,12 +1,12 @@
 #include "stdafx.h"
-#include "MainWndFrame.h"
+#include "main_frame_wnd.h"
 #include "resource.h"
 
-DUI_BEGIN_MESSAGE_MAP(MainWndFrame, CNotifyPump)
+DUI_BEGIN_MESSAGE_MAP(MainFrameWnd, CNotifyPump)
 	DUI_ON_MSGTYPE(DUI_MSGTYPE_CLICK, OnClick)
 DUI_END_MESSAGE_MAP()
 
-CDuiString MainWndFrame::GetSkinFolder()
+CDuiString MainFrameWnd::GetSkinFolder()
 {
 #if _DEBUG
 	return _T("theme");
@@ -15,19 +15,19 @@ CDuiString MainWndFrame::GetSkinFolder()
 #endif
 }
 
-CDuiString MainWndFrame::GetSkinFile()
+CDuiString MainFrameWnd::GetSkinFile()
 {
 	// 成员变量定义的皮肤文件名
 	return kMainWndFrame;
 }
 
-LPCTSTR MainWndFrame::GetWindowClassName(void) const
+LPCTSTR MainFrameWnd::GetWindowClassName(void) const
 {
 	// 成员变量定义的窗口 class name
 	return kClassName;
 }
 
-DuiLib::UILIB_RESOURCETYPE MainWndFrame::GetResourceType() const
+DuiLib::UILIB_RESOURCETYPE MainFrameWnd::GetResourceType() const
 {
 #if _DEBUG
 	return UILIB_FILE;
@@ -36,12 +36,12 @@ DuiLib::UILIB_RESOURCETYPE MainWndFrame::GetResourceType() const
 #endif
 }
 
-LPCTSTR MainWndFrame::GetResourceID() const
+LPCTSTR MainFrameWnd::GetResourceID() const
 {
 	return MAKEINTRESOURCE(IDR_ZIPRES1);
 }
 
-void MainWndFrame::InitWindow()
+void MainFrameWnd::InitWindow()
 {
 	m_pMinBtn = dynamic_cast<CButtonUI*>(m_PaintManager.FindControl(_T("minbtn")));
 	m_pMaxBtn = dynamic_cast<CButtonUI*>(m_PaintManager.FindControl(_T("maxbtn")));
@@ -73,7 +73,7 @@ void MainWndFrame::InitWindow()
 	m_pMainWndList->Add(pControl);
 }
 
-void MainWndFrame::Notify(TNotifyUI& msg)
+void MainFrameWnd::Notify(TNotifyUI& msg)
 {
 #if 0
 	if (msg.sType == DUI_MSGTYPE_CLICK)
@@ -89,15 +89,15 @@ void MainWndFrame::Notify(TNotifyUI& msg)
 	__super::Notify(msg);
 }
 
-void MainWndFrame::OnClick(TNotifyUI& msg)
+void MainFrameWnd::OnClick(TNotifyUI& msg)
 {
 	CDuiString strName = msg.pSender->GetName();
 	if (strName == _T("aboutbtn"))
 	{
 		if (m_pAboutWndFrame == nullptr)
 		{
-			m_pAboutWndFrame = new AboutWndFrame();
-			m_pAboutWndFrame->Create(this->GetHWND(), AboutWndFrame::kClassName, UI_WNDSTYLE_DIALOG, 0);
+			m_pAboutWndFrame = new AboutFrameWnd();
+			m_pAboutWndFrame->Create(this->GetHWND(), AboutFrameWnd::kClassName, UI_WNDSTYLE_DIALOG, 0);
 		}
 		m_pAboutWndFrame->CenterWindow();
 		m_pAboutWndFrame->ShowWindow();
@@ -106,7 +106,7 @@ void MainWndFrame::OnClick(TNotifyUI& msg)
 	__super::OnClick(msg);
 }
 
-LRESULT MainWndFrame::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
+LRESULT MainFrameWnd::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
 	if (uMsg == WM_CLOSE)
 	{
@@ -116,5 +116,5 @@ LRESULT MainWndFrame::OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHa
 	return __super::OnClose(uMsg, wParam, lParam, bHandled);
 }
 
-const LPCTSTR MainWndFrame::kClassName = _T("main_wnd_frame");
-const LPCTSTR MainWndFrame::kMainWndFrame = _T("main_wnd_frame.xml");
+const LPCTSTR MainFrameWnd::kClassName = _T("main_wnd_frame");
+const LPCTSTR MainFrameWnd::kMainWndFrame = _T("main_wnd_frame.xml");

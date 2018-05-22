@@ -1,5 +1,7 @@
 #pragma once
-class AboutWndFrame : public WindowImplBase
+#include "about_frame_wnd.h"
+
+class MainFrameWnd : public WindowImplBase
 {
 protected:
 	virtual CDuiString GetSkinFolder() override;				// 获取皮肤文件的目录，如果有多层目录这里可以设置
@@ -12,11 +14,21 @@ protected:
 	virtual void InitWindow() override;							// 窗口初始化函数
 	virtual void Notify(TNotifyUI& msg) override;				// 通知事件处理函数
 
+	DUI_DECLARE_MESSAGE_MAP()
+	virtual void OnClick(TNotifyUI& msg);
+	virtual LRESULT OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled) override;
 public:
 	static const LPCTSTR	kClassName;
-	static const LPCTSTR	kAboutWndFrame;
+	static const LPCTSTR	kMainWndFrame;
 
 private:
+	CButtonUI*				m_pMinBtn = nullptr;
+	CButtonUI*				m_pMaxBtn = nullptr;
+	CButtonUI*				m_pRestoreBtn = nullptr;
 	CButtonUI*				m_pCloseBtn = nullptr;
-};
 
+	CListUI*				m_pMainWndList = nullptr;
+	CDialogBuilder			m_pBuilder;
+
+	AboutFrameWnd*			m_pAboutWndFrame = nullptr;
+};

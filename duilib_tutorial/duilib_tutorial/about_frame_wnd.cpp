@@ -1,8 +1,8 @@
 #include "stdafx.h"
-#include "AboutWndFrame.h"
+#include "about_frame_wnd.h"
 #include "Resource.h"
 
-DuiLib::CDuiString AboutWndFrame::GetSkinFolder()
+DuiLib::CDuiString AboutFrameWnd::GetSkinFolder()
 {
 #if _DEBUG
 	return _T("theme");
@@ -11,17 +11,17 @@ DuiLib::CDuiString AboutWndFrame::GetSkinFolder()
 #endif
 }
 
-DuiLib::CDuiString AboutWndFrame::GetSkinFile()
+DuiLib::CDuiString AboutFrameWnd::GetSkinFile()
 {
 	return kAboutWndFrame;
 }
 
-LPCTSTR AboutWndFrame::GetWindowClassName(void) const
+LPCTSTR AboutFrameWnd::GetWindowClassName(void) const
 {
 	return kClassName;
 }
 
-DuiLib::UILIB_RESOURCETYPE AboutWndFrame::GetResourceType() const
+DuiLib::UILIB_RESOURCETYPE AboutFrameWnd::GetResourceType() const
 {
 #if _DEBUG
 	return UILIB_FILE;
@@ -30,17 +30,17 @@ DuiLib::UILIB_RESOURCETYPE AboutWndFrame::GetResourceType() const
 #endif
 }
 
-LPCTSTR AboutWndFrame::GetResourceID() const
+LPCTSTR AboutFrameWnd::GetResourceID() const
 {
 	return MAKEINTRESOURCE(IDR_ZIPRES1);
 }
 
-void AboutWndFrame::InitWindow()
+void AboutFrameWnd::InitWindow()
 {
 	m_pCloseBtn = dynamic_cast<CButtonUI*>(m_PaintManager.FindControl(_T("btn_close")));
 }
 
-void AboutWndFrame::Notify(TNotifyUI& msg)
+void AboutFrameWnd::Notify(TNotifyUI& msg)
 {
 	if (msg.sType == DUI_MSGTYPE_CLICK)
 	{
@@ -58,5 +58,5 @@ void AboutWndFrame::Notify(TNotifyUI& msg)
 	}
 }
 
-const LPCTSTR AboutWndFrame::kClassName = _T("about_wnd_frame");
-const LPCTSTR AboutWndFrame::kAboutWndFrame = _T("about_wnd_frame.xml");
+const LPCTSTR AboutFrameWnd::kClassName = _T("about_wnd_frame");
+const LPCTSTR AboutFrameWnd::kAboutWndFrame = _T("about_wnd_frame.xml");

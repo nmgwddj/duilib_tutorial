@@ -174,17 +174,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="AboutWndFrame.h" />
+    <ClInclude Include="about_frame_wnd.h" />
     <ClInclude Include="duilib_tutorial.h" />
-    <ClInclude Include="MainWndFrame.h" />
+    <ClInclude Include="main_frame_wnd.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AboutWndFrame.cpp" />
+    <ClCompile Include="about_frame_wnd.cpp" />
     <ClCompile Include="duilib_tutorial.cpp" />
-    <ClCompile Include="MainWndFrame.cpp" />
+    <ClCompile Include="main_frame_wnd.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

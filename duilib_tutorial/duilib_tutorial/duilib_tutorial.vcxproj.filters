@@ -27,10 +27,10 @@
     <ClInclude Include="duilib_tutorial.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="MainWndFrame.h">
+    <ClInclude Include="main_frame_wnd.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="AboutWndFrame.h">
+    <ClInclude Include="about_frame_wnd.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,10 +41,10 @@
     <ClCompile Include="duilib_tutorial.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MainWndFrame.cpp">
+    <ClCompile Include="main_frame_wnd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="AboutWndFrame.cpp">
+    <ClCompile Include="about_frame_wnd.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
